@@ -1,0 +1,36 @@
+body {
+    background-color: #bdc3c7;
+}
+.container_ {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.table {
+    width: 80%;
+    background-color: #fff;
+}
+.fa-check {
+    color: green;
+    margin-left: 15px;
+}
+.fa-times {
+    color: red;
+    margin-left: 17.5px;
+}
+.td-ip:hover {
+    cursor: pointer;
+    display: inline-block;
+}
+.add-vote {
+    color: #0a68ff;
+    display: inline-block;
+}
+.add-vote:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+.votes {
+    margin-left: 9px;
+    display: inline-block;
+}

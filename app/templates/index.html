@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista serwerów</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename="css/styles.css") }}">
+</head>
+<body>
+{% include 'navbar.html' %}
+{% include 'vote.html' %}
+<div class="container_">
+    <table class="table table-hover">
+      <thead class="thead-light">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nazwa</th>
+            <th scope="col">Adres ip</th>
+            <th scope="col">Liczba graczy</th>
+            <th scope="col">Wersja</th>
+            <th scope="col">Status</th>
+            <th scope="col">Głosy</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for server in servers %}
+            <tr>
+              <th scope="row">{{ server.id }}</th>
+              <td>{{ server.name }}</td>
+              <td><p class="td-ip" data-toggle="tooltip" data-placement="top" title="Kopiuj">{{ server.ip }}</p></td>
+              <td>{{ server.players }}</td>
+              <td style="max-width: 150px;">{{ server.version }}</td>
+              <td style="max-width: 15px;">{% if server.status == "1" %}<i class="fas fa-check"></i>{% else %}<i class="fas fa-times"></i>{% endif %}</td>
+              <td><p class="votes server-votes{{ server.id }}">{{ server.votes }}</p> <p class="add-vote" serverid="{{ server.id }}">+</p></td>
+            </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<script src="https://kit.fontawesome.com/033e78e466.js" crossorigin="anonymous"></script>
+<script src="{{ url_for('static', filename='javascript/main.js') }}"></script>
+<script src="{{ url_for('static', filename='javascript/api.js') }}"></script>
+</body>
+</html>
