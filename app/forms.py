@@ -8,5 +8,5 @@ class AddServerForm(FlaskForm):
 
 
 # Oddanie głosu na serwer
-class AddVote(FlaskForm):
+class AddVoteForm(FlaskForm):
     recaptcha = RecaptchaField()

@@ -35,7 +35,6 @@ $(document).ready(function() {
             }
         });
         var server_id = window.server_id;
-        $('.add-server').prop('disabled', true);
         $.ajax({
             url: '/add_vote',
             type: 'POST',
