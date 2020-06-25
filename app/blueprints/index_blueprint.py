@@ -1,13 +1,9 @@
-from flask import Flask, Blueprint, render_template
-from flask_mysqldb import MySQL
+from flask import Blueprint, render_template
+from app import mysql
 
-from forms import AddServerForm, AddVoteForm
+from app.forms import AddServerForm, AddVoteForm
 
 index_blueprint = Blueprint('index_blueprint', __name__)
-
-app = Flask(__name__)
-app.config.from_object('config')
-mysql = MySQL(app)
 
 
 @index_blueprint.route('/')

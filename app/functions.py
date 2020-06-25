@@ -2,15 +2,15 @@ import threading
 import mysql.connector
 import requests
 import html
+from app.config import *
 
 mydb = mysql.connector.connect(
-  host="localhost",
-  user="root",
-  passwd="",
-  db="servers"
+  host=MYSQL_HOST,
+  user=MYSQL_USER,
+  passwd=MYSQL_PASSWORD,
+  db=MYSQL_DB
 )
 cur = mydb.cursor(buffered=True)
-
 
 def server_data(get_server_data):
     online_players = get_server_data["players"]["online"]

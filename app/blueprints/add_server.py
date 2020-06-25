@@ -1,15 +1,11 @@
 import requests
 
-from flask import Flask, request, jsonify, Blueprint
-from flask_mysqldb import MySQL
+from flask import request, jsonify, Blueprint
+from app import mysql
 
-from functions import server_data
+from app.functions import server_data
 
 add_server_blueprint = Blueprint('add_server_blueprint', __name__)
-
-app = Flask(__name__)
-app.config.from_object('config')
-mysql = MySQL(app)
 
 
 @add_server_blueprint.route('/add', methods=['POST'])

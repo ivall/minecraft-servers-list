@@ -1,15 +1,11 @@
 import bcrypt
 
-from flask import Flask, request, jsonify, Blueprint
-from flask_mysqldb import MySQL
+from flask import request, jsonify, Blueprint
+from app import mysql
 
-from forms import AddVoteForm
+from app.forms import AddVoteForm
 
 add_vote_blueprint = Blueprint('add_vote_blueprint', __name__)
-
-app = Flask(__name__)
-app.config.from_object('config')
-mysql = MySQL(app)
 
 
 @add_vote_blueprint.route('/add_vote', methods=['POST'])
